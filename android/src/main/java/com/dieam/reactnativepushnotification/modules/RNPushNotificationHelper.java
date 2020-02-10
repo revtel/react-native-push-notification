@@ -285,7 +285,9 @@ public class RNPushNotificationHelper {
             if (!bundle.containsKey("playSound") || bundle.getBoolean("playSound")) {
                 soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 String soundName = bundle.getString("soundName");
-
+                // REVTEL: use pushsound.mp3 filename for custom sound in res/raw
+                // only works for foreground notification
+                soundName = "pushsound.mp3";
                 if (soundName != null) {
                     if (!"default".equalsIgnoreCase(soundName)) {
 
